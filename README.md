@@ -169,3 +169,6 @@ Projeto desenvolvido em grupo como atividade acadêmica do curso de Ciência da 
 - André Luiz Bayma Antunes Correia
 - Arthur Alencar Harten de Moraes
 - Felipe Oliveira do Nascimento
+## Vídeo de demonstração
+
+[Assistir ao Cosmo Dash em execução](https://youtu.be/zYLvqWDB2IM)
