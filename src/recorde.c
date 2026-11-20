@@ -15,7 +15,7 @@ int recorde_carregar(const char *caminho) {
 
     FILE *arquivo = fopen(caminho, "r");
     if (arquivo == NULL) {
-        /* Arquivo ausente: recorde inicial 0 */
+        
         return 0;
     }
 
@@ -33,7 +33,7 @@ int recorde_carregar(const char *caminho) {
 
         if (!encontrado) {
             if (*ponteiro == '\0') {
-                continue; /* Linha em branco antes do numero */
+                continue; 
             }
 
             errno = 0;
@@ -55,7 +55,7 @@ int recorde_carregar(const char *caminho) {
         }
 
         if (*ponteiro != '\0') {
-            invalido = 1; /* Nao aceita prefixo nem conteudo extra apos o numero */
+            invalido = 1; 
             break;
         }
     }
