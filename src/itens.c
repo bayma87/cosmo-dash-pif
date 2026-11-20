@@ -20,7 +20,7 @@ int itens_criar(Item **lista, int limite_esq, int limite_dir, int y_inicial) {
 
     Item *novo = (Item *)malloc(sizeof(Item));
     if (novo == NULL) {
-        /* Falha de alocação: não acessa ponteiro NULL */
+        
         return 0;
     }
 
@@ -45,10 +45,10 @@ void itens_mover_e_remover_fora(Item **lista, int limite_inferior) {
         no->y++;
 
         if (no->y > limite_inferior) {
-            /* Item perdido: remove sem contar como coletado */
+           
             *atual = no->prox;
             free(no);
-            /* Não avança: *atual já aponta para o próximo */
+           
         } else {
             atual = &no->prox;
         }
@@ -64,10 +64,10 @@ int itens_verificar_coleta(Item **lista, int nave_x, int nave_y, int nave_largur
     Item **atual = lista;
     while (*atual != NULL) {
         Item *no = *atual;
-        /* Mesma lógica de sobreposição horizontal da nave */
+        
         if (no->y == nave_y && no->x >= nave_x && no->x <= nave_x + nave_largura - 1) {
             if (no->tipo == ITEM_VIDA_EXTRA) {
-                /* No teto, apenas consome o item; sem vida extra */
+              
                 if (vidas != NULL && *vidas < NAVE_VIDAS_MAXIMAS) {
                     (*vidas)++;
                 }
@@ -80,7 +80,7 @@ int itens_verificar_coleta(Item **lista, int nave_x, int nave_y, int nave_largur
                 (*itens_coletados)++;
             }
 
-            /* Remove e libera o item coletado */
+         
             *atual = no->prox;
             free(no);
             return 1;
