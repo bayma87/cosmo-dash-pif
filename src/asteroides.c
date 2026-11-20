@@ -27,7 +27,7 @@ int asteroides_criar(Asteroide **lista, int limite_esq, int limite_dir, int y_in
 
     Asteroide *novo = (Asteroide *)malloc(sizeof(Asteroide));
     if (novo == NULL) {
-        /* Falha de alocação: não acessa ponteiro NULL */
+       
         return 0;
     }
 
@@ -52,7 +52,7 @@ void asteroides_mover_e_remover_fora(Asteroide **lista, int limite_inferior, int
         no->y++;
 
         if (no->y > limite_inferior) {
-            /* Remove asteroide que saiu da área sem colisão: conta como desviado e pontua */
+            
             *atual = no->prox;
             free(no);
             if (desviados != NULL) {
@@ -61,7 +61,7 @@ void asteroides_mover_e_remover_fora(Asteroide **lista, int limite_inferior, int
             if (pontos != NULL) {
                 *pontos += PONTOS_POR_ASTEROIDE_DESVIADO * multiplicador;
             }
-            /* Não avança: *atual agora aponta para o próximo nó */
+            
         } else {
             atual = &no->prox;
         }
@@ -76,9 +76,9 @@ int asteroides_verificar_colisao(Asteroide **lista, int nave_x, int nave_y, int 
     Asteroide **atual = lista;
     while (*atual != NULL) {
         Asteroide *no = *atual;
-        /* Colisão: mesma linha da nave e coluna dentro da largura da nave */
+       
         if (no->y == nave_y && no->x >= nave_x && no->x <= nave_x + nave_largura - 1) {
-            /* Remove e libera o asteroide colidido (não conta como desviado nem pontua) */
+            
             *atual = no->prox;
             free(no);
             return 1;
@@ -109,6 +109,6 @@ void asteroides_limpar(Asteroide **lista) {
         *lista = no->prox;
         free(no);
     }
-    /* Garante que a cabeça fique NULL */
+   
     *lista = NULL;
 }
